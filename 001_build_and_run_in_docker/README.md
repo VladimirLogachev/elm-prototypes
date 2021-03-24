@@ -1,13 +1,16 @@
 # Elm in docker
 
-## This example demonstrates:
+## This example demonstrates a minimal realistic Elm setup
 
 - **dev** and **prod** configurations for Docker
 - Heavily optimized Elm build
-- CSS and JS inlined in HTML for super-quick load
 - Static assets (favicon)
-- `elm-format` validation on CI via GitHub actions
+- CSS and JS inlined in HTML for super-quick load
+- `elm-format` validation ans unit-tests via `elm-test` on CI (GitHub actions)
+
+### Extra
 - Works on Apple ARM64
+- VSCode recommended extensions setup
 
 ## Requirements
 
@@ -28,7 +31,13 @@ docker-compose -f dc.prod.yml up -V --build
 docker-compose -f dc.dev.yml up -V --build
 ```
 
-### P.S.
+- Run tests during development (requires node, elm and elm-test)
+
+```sh
+elm-test "src/**/*Test.elm" --watch
+```
+
+### Extra notes
 
 - Run in dev mode (watching files) without docker (requires node, elm and elm-live)
 

@@ -15,13 +15,17 @@ RUN mv elm-format /usr/local/bin/
 # Install dependencies
 RUN npm i -g \
   uglify-js@3.7.6 \
-  inline-source-cli@2.0.0
+  inline-source-cli@2.0.0 \
+  elm-test@0.19.1-revision6
 
 WORKDIR /build
 COPY . .
 
 # Validate Elm code formatting
 RUN elm-format --validate .
+
+# Run unit tests
+RUN elm-test "src/**/*Test.elm"
 
 # Compile Elm code
 RUN elm make --optimize --output="./bundle.uncompressed.js" src/Main.elm

@@ -1,0 +1,12 @@
+# Ignore everything
+**
+
+# Allow files and directories
+!/index.src.html
+!/elm.json
+!/src/**
+!/assets/**
+
+# Ignore unnecessary files inside allowed directories
+**/.DS_Store
+**/Thumbs.db

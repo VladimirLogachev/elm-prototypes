@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="description" content="description text" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+
+    <link inline rel="stylesheet" href="/assets/inline/reset.css" />
+
+    <!-- Elm main bundle -->
+    <script inline type="text/javascript" src="/assets/inline/bundle.js"></script>
+  </head>
+
+  <body>
+    <div id="elm-node"></div>
+    <!-- Elm init -->
+    <script>
+      Elm.Main.init({
+        node: document.getElementById("elm-node"),
+        flags: window.navigator.language,
+      });
+    </script>
+  </body>
+</html>

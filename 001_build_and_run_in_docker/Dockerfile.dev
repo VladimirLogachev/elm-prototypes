@@ -1,0 +1,25 @@
+FROM node:14.16.0 as builder
+
+# Install Elm
+RUN curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+RUN gunzip elm.gz
+RUN chmod +x elm
+RUN mv elm /usr/local/bin/
+
+# Install dependencies
+RUN npm i -g elm-live@4.0.2
+
+# Compile Elm code
+WORKDIR /app
+
+EXPOSE 8080
+
+CMD ["elm-live", \
+   "src/Main.elm", \
+   "--dir=./", \
+   "--host=0.0.0.0", \
+   "--port=8080", \
+   "--pushstate", \
+   "--start-page=index.src.html", \
+   "--", \
+   "--output=./assets/inline/bundle.js"]

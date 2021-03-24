@@ -1,0 +1,15 @@
+name: 001_build_and_run_in_docker
+on:
+  push
+
+jobs:
+  prototype_001:
+    name: Build elm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build in docker
+        run: |
+          cd 001_build_and_run_in_docker 
+          docker-compose -f dc.prod.yml build 

@@ -6,6 +6,7 @@
 !/elm.json
 !/src/**
 !/assets/**
+!/configs/**
 
 # Ignore unnecessary files inside allowed directories
 **/.DS_Store

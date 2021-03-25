@@ -46,7 +46,10 @@ WORKDIR /usr/share/nginx/html
 
 # Copy bundle and assets to the Nginx container
 COPY --from=builder /build/index.html .
-COPY --from=builder /build/assets .
+COPY --from=builder /build/assets ./assets
 RUN rm -rf assets/inline
+
+# Copy nginx config
+COPY ./configs/nginx.prod.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

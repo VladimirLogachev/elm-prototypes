@@ -1,19 +1,28 @@
 module MainTest exposing (..)
 
+import Expect exposing (fail)
+import Html
 import Main
 import Test exposing (..)
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (text)
+import Url
 
 
 suite : Test
 suite =
     describe "The Main module"
-        [ describe "main"
-            [ test "Button has the expected text" <|
+        [ describe "viewPage"
+            [ test "Displays the current url" <|
                 \() ->
-                    Main.main
-                        |> Query.fromHtml
-                        |> Query.has [ text "hello world" ]
+                    case Url.fromString "http://localhost:8080/abcd" of
+                        Just url ->
+                            Main.viewPage url
+                                |> Html.div []
+                                |> Query.fromHtml
+                                |> Query.has [ text "http://localhost:8080/abcd" ]
+
+                        Nothing ->
+                            fail "should not happen, Url considered invalid"
             ]
         ]

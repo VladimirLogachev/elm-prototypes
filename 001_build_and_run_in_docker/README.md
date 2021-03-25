@@ -2,11 +2,9 @@
 
 ## This example demonstrates a minimal realistic Elm setup
 
-- **dev** and **prod** configurations for Docker
-- Heavily optimized Elm build
-- Static assets (favicon)
-- CSS and JS inlined in HTML for super-quick load
-- `elm-format` validation ans unit-tests via `elm-test` on CI (GitHub actions)
+- **dev** and **prod** configurations for Docker _(both with SPA routing and serving static assets)_
+- Heavily optimized production Elm build _(with CSS and JS inlined in HTML for super-quick load)_
+- `elm-format` validation ans `elm-test` unit-tests on CI _(via GitHub actions)_
 
 ### Extra
 - Works on Apple ARM64

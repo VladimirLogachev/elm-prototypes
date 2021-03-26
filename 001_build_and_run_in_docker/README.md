@@ -32,6 +32,7 @@ docker-compose -f dc.dev.yml up -V --build
 - Run tests during development (requires node, elm and elm-test)
 
 ```sh
+cd webapp
 elm-test "src/**/*Test.elm" --watch
 ```
 
@@ -40,6 +41,7 @@ elm-test "src/**/*Test.elm" --watch
 - Run in dev mode (watching files) without docker (requires node, elm and elm-live)
 
 ```sh
+cd webapp
 elm-live "src/Main.elm" \
   --dir="./" \
   --open \

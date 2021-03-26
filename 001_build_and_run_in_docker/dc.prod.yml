@@ -3,7 +3,7 @@ version: '3.5'
 services:
   webapp:
     build:
-      context: .
+      context: webapp
       dockerfile: Dockerfile.prod
     ports:
       - '8080:80'

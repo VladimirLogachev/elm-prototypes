@@ -3,9 +3,9 @@ version: '3.5'
 services:
   webapp:
     build:
-      context: .
+      context: webapp
       dockerfile: Dockerfile.dev
     volumes:
-      - '.:/app'
+      - './webapp:/app'
     ports:
       - '8080:8080'

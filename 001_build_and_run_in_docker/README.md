@@ -7,7 +7,7 @@
 - `elm-format` validation ans `elm-test` unit-tests on CI _(via GitHub actions)_
 
 ### Extra
-- Works on Apple ARM64
+- Works on Apple arm64 (except for integration tests in docker)
 - VSCode recommended extensions setup
 
 ## Requirements
@@ -55,3 +55,22 @@ elm-live "src/Main.elm" \
 
 - Why 2 compose files?
   > The idea is that with backend in docker, several docker-compose configurations are combined when necessary from several files via -f flags, or started separately but configured to join a single network, or even composed and exported with Dhall.
+
+## Run integration tests
+
+Integration tests are powered by [Cypress](https://cypress.io/), recorded on video which for this project (elm-prototypes) made public intentionally and are available at [Cypress Dashboard](https://dashboard.cypress.io/projects/411394/runs).
+
+### Run integration tests in headless browser (as on CI)
+
+- Run `bash run-integration-tests.sh` (the results will be recorded to the Cypress Dashboard only if `CYPRESS_RECORD_KEY` env variable is set)
+
+### Run integration tests in headed browser (dev mode, watching changes in tests)
+
+- Run webapp so that it is accessible at `http://localhost:8080`
+- Run test with headed browser, watching for changes in test suites
+
+```sh
+cd integration-tests
+npm i
+CYPRESS_BASE_URL=http://localhost:8080 npm test
+```

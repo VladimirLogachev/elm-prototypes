@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  webapp:
+    build:
+      context: webapp
+      dockerfile: Dockerfile.prod
+  test-runner:
+    image: cypress/included:6.8.0
+    environment:
+      - CYPRESS_RECORD_KEY
+      - CYPRESS_BASE_URL=http://webapp:80
+      - COMMIT_INFO_BRANCH
+      - COMMIT_INFO_MESSAGE
+      - COMMIT_INFO_EMAIL
+      - COMMIT_INFO_AUTHOR
+      - COMMIT_INFO_SHA
+    volumes:
+      - "./integration-tests/cypress:/e2e/cypress"
+      - "./integration-tests/cypress.json:/e2e/cypress.json"

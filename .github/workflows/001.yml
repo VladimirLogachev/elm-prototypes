@@ -9,7 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build in docker
+      - name: Build and run all kinds of tests in Docker
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         run: |
           cd 001_build_and_run_in_docker 
-          docker-compose -f dc.prod.yml build 
+          bash run-integration-tests.sh 

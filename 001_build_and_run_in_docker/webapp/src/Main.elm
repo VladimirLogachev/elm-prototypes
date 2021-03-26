@@ -61,8 +61,8 @@ view model =
 
 viewPage : Url.Url -> List (Html msg)
 viewPage url =
-    [ text "The current URL is: "
-    , b [] [ text (Url.toString url) ]
+    [ text "The current path is: "
+    , b [] [ text url.path ]
     , ul []
         [ viewLink "/page-a"
         , viewLink "/page-b"

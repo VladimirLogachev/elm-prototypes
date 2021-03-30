@@ -1,10 +1,10 @@
-FROM cypress/base:14.16.0
+FROM cypress/included:6.8.0
 
 WORKDIR /e2e
 
-ADD package.json package-lock.json ./
+ADD . .
 
 RUN npm i
 RUN npm i @percy/cypress@2.3.4
 
-CMD [ "npm", "run", "test-ci", "--" ]
+CMD [ "npm", "run", "test-ci" ]

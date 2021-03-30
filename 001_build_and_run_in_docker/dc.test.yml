@@ -8,7 +8,6 @@ services:
   test-runner:
     build:
       context: integration-tests
-      dockerfile: Dockerfile.prod
     environment:
       - CYPRESS_RECORD_KEY
       - PERCY_TOKEN 

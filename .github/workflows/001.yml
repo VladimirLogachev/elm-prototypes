@@ -12,6 +12,7 @@ jobs:
       - name: Build and run all kinds of tests in Docker
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         run: |
           cd 001_build_and_run_in_docker 
           bash run-integration-tests.sh 

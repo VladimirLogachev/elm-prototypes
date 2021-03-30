@@ -6,9 +6,12 @@ services:
       context: webapp
       dockerfile: Dockerfile.prod
   test-runner:
-    image: cypress/included:6.8.0
+    build:
+      context: integration-tests
+      dockerfile: Dockerfile.prod
     environment:
       - CYPRESS_RECORD_KEY
+      - PERCY_TOKEN 
       - CYPRESS_BASE_URL=http://webapp:80
       - COMMIT_INFO_BRANCH
       - COMMIT_INFO_MESSAGE

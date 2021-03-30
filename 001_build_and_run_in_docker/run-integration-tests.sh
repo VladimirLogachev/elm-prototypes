@@ -42,7 +42,7 @@ export COMMIT_INFO_AUTHOR=`git log -1 --pretty=format:'%an'`
 export COMMIT_INFO_SHA=$GITHUB_SHA
 # Run integration tests in the attached mode
 # Use runner exit code as docker-compose exit code (which is not automatic)
-$docker_compose run --workdir="/e2e" test-runner npm test-ci $RECORD_FLAG
+$docker_compose run --workdir="/e2e" test-runner npm run test-ci $RECORD_FLAG
 RUNNER_EXIT_CODE=$?
 
 # -------------------
